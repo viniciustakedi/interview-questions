@@ -1,0 +1,81 @@
+O que é DOM?
+
+Quais a diferença do html5 pro html4?
+
+Quantas tags de title  existem?
+
+Qual a diferença de div para um spam?
+
+——
+
+Cite algumas técnicas de SEO
+
+Cite técnicas pra deixar um site mais performático.
+
+Cite algumas técnicas de acessibilidade.
+
+Como você estrutura sua aplicação?
+
+——
+
+O que é SASS?
+
+Qual a diferença de position: relative e absolute? 
+
+Qual a diferença entre classe e id?
+
+Pq o CSS Modules é tão vantajoso?
+
+Quais as boas práticas que você utiliza na hora de escrever CSS?
+
+Quando podemos usar o before ou after? 
+
+——
+
+Qual a diferença de DOM pra o Virtual DOM?
+
+O que é hook?
+
+Como funciona o useEffect?
+
+Quando devemos usar o useCallback?
+
+Qual a diferença de um componente funcional e componente utilizando classe?
+
+——
+
+Como funciona uma promise? 
+
+Qual a diferença de promise pra async await?
+
+O que é uma closure?
+
+Qual a diferença entre um for e um map?
+
+Como o método reduce funciona?
+
+Qual a feature que você mais gosta do es7?
+
+Como o webpack funciona?
+
+Me explica a pirâmide de testes. Testes unitários, integração e end to end e quais ferramentas podemos utilizar para cada uma dessas fases. 
+
+Pq code splitting é tão importante?
+
+O que é uma função pura?
+
+O que é Babel?
+
+Como o promise race funciona?
+
+Por que você gosta de typescript? Quais são as vantagens? 
+
+——
+
+Como você organiza as suas tarefas do dia a dia?
+
+O que você anda estudando ultimamente?
+
+Qual foi o maior desafio técnico que você já teve em sua carreira?
+
+Me fale algo que você já fez de errado e como você reagiu no momento.

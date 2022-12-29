@@ -1,0 +1,23 @@
+.question-div {
+  display: grid;
+  grid-auto-rows: auto;
+  grid-auto-columns: max-content;
+  grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
+  grid-column-gap: 2rem;
+  grid-row-gap: 2rem;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 860px) {
+  .question-div {
+    grid-template-columns: repeat(auto-fill, minmax(40%, 1fr));
+  }
+}
+
+@media (max-width: 570px) {
+  .question-div {
+    grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
+  }
+}
