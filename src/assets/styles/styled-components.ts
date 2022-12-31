@@ -137,9 +137,9 @@ export const TagText = styled.p<TTProps>`
     padding: .1rem;
     text-transform: capitalize;
     border-radius: 40px;
-    background-color: #c62368;
+    background-color: #001220;
     color: #fff;
-    box-shadow: 2px 2px 6px 4px #c6236835;
+    box-shadow: 2px 2px 6px 4px #c6236845;
 `;
 
 export const SpanColorize = styled.span<TTProps>`
@@ -149,6 +149,25 @@ export const SpanColorize = styled.span<TTProps>`
 export const SpanBackground = styled.span<TTProps>`
     color: ${props => props.color || "#403b3b"};
     background: linear-gradient(180deg, transparent 55%, ${props => props.backgroundColor || "#7e6ae4"} 45%);
+`;
+
+interface TSpanGradientProps { //TT = Title and Text
+    color?: string;
+    gradient: { position?: string, color1: string, color2: string },
+    animate?: { infinite: boolean, }
+}
+
+export const SpanGradient = styled.span<TSpanGradientProps>`
+    color: ${props => props.color || "#403b3b"};
+    background: -webkit-linear-gradient(${props =>
+        props.gradient.position
+            ? props.gradient.position
+            : '-45deg'
+    },
+    ${props => props.gradient.color1},
+    ${props => props.gradient.color2});
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 `;
 
 // {===----===----===----===[ Text ]===----===----===----===}
@@ -192,6 +211,8 @@ interface IGenericDivProps {
     justifyContent?: 'center' | 'flex-start' | 'flex-end' | 'space-between';
     flexDirection?: 'column' | 'row';
     width?: number;
+    height?: number;
+
 }
 
 
@@ -202,7 +223,7 @@ export const GenericDiv = styled.div<IGenericDivProps>`
     flex-direction: ${props => props.flexDirection || 'initial'};
     margin-top: ${props => props.marginTop || 0}rem;
     width: ${props => props.width || 100}%;
-    height: 100%;
+    height: ${props => props.height || 100}%;
 `;
 // {===----===----===----===[ Div ]===----===----===----===}
 
@@ -262,9 +283,146 @@ export const Image = styled.img<IImageProps>`
 `;
 // {===----===----===----===[ Image ]===----===----===----===}
 
+// {===----===----===----===[ Tooltip ]===----===----===----===}
+interface ITooltipProps {
+    tooltip: {
+        position?: 'top' | 'bottom' | 'left' | 'right',
+        text: string,
+        width?: number,
+        backgroundColor?: string;
+        color?: string;
+    },
+}
+
+export const Tooltip = styled.div<ITooltipProps>`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    top: 0;
+    left: 0;
+
+    &:after {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        ${props => props.tooltip?.position
+        ? props.tooltip?.position === 'top'
+            ? `bottom: 100%; left: 50%; margin-left: -95px;`
+            : props.tooltip?.position === 'left'
+                ? `top: -5px; right: 95%;`
+                : props.tooltip?.position === 'right'
+                    ? `top: -5px; left: 115%;`
+                    : `top: 100%; left: 50%;`
+        : `top: 100%; left: 50%; margin-left: -95px;`
+    } 
+        content: "${props => props.tooltip?.text}";
+        background-color: ${props => props.tooltip?.backgroundColor || '#edc2d4'};
+        width: ${props => props.tooltip?.width || 185}px;
+        height: 2rem;
+        color:${props => props.tooltip?.color || '#c62368'};
+        border-radius: 10px;
+        font-size: 0.75rem;
+        opacity: 0;
+        visibility: hidden;
+        transform: scale(.9);
+        transition: all 0.35s cubic-bezier(0, 0, 0.32, 1.22);
+    }
+
+    &:hover {
+        &:after {
+        ${props => props.tooltip?.position
+        ? props.tooltip?.position === 'top'
+            ? `bottom: 115%; left: 50%;`
+            : props.tooltip?.position === 'left'
+                ? `top: 10%; right: 105%;`
+                : props.tooltip?.position === 'right'
+                    ? `top: 10%; left: 105%;`
+                    : `top: 115%; left: 50%;`
+        : `top: 115%; left: 50%;`
+    } 
+            visibility: visible;
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @media(max-width: 560px) {
+        &:after {
+            display: none
+        }
+    }
+`;
+
+interface ITooltipPropsNullable {
+    position?: 'top' | 'bottom' | 'left' | 'right',
+    text: string,
+    width?: number,
+    backgroundColor?: string;
+    color?: string;
+}
+
+const TooltipComponent = (props: any) => {
+    return `
+        &:after {
+            display: ${props ? 'flex' : 'none'};
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            ${props?.position
+            ? props?.position === 'top'
+                ? `bottom: 100%; left: 50%; margin-left: -95px;`
+                : props?.position === 'left'
+                    ? `top: -5px; right: 95%;`
+                    : props?.position === 'right'
+                        ? `top: -5px; left: 95%;`
+                        : `top: 110%; left: 50%; margin-left: -95px;`
+            : `top: 110%; left: 50%; margin-left: -95px;`
+        } 
+            content: "${props?.text}";
+            background-color: ${props?.backgroundColor || '#edc2d4'};
+            width: ${props?.width || 185}px;
+            height: 2rem;
+            color:${props?.color || '#c62368'};
+            border-radius: 10px;
+            font-size: 0.75rem;
+            visibility: hidden;
+            opacity: 0;
+            transform: scale(.9);
+            transition: all 0.35s cubic-bezier(0, 0, 0.32, 1.22);
+        }
+
+        &:hover {
+            &:after {
+            ${props?.position
+            ? props?.position === 'top'
+                ? `bottom: 115%; left: 50%;`
+                : props?.position === 'left'
+                    ? `top: 10%; right: 115%;`
+                    : props?.position === 'right'
+                        ? `top: 10%; left: 105%;`
+                        : `top: 115%; left: 50%;`
+            : `top: 115%; left: 50%;`
+        }    
+                visibility: visible;
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @media(max-width: 560px) {
+            &:after {
+                display: none
+            }
+        }
+        `;
+}
+// {===----===----===----===[ Tooltip ]===----===----===----===}
+
 // {===----===----===----===[ Button ]===----===----===----===}
 interface IButtonProps {
-
+    tooltip?: ITooltipPropsNullable;
 }
 
 export const Button = styled.button<IButtonProps>`
@@ -272,15 +430,16 @@ export const Button = styled.button<IButtonProps>`
     width: 20%;
     height: 3rem;
     border-radius: 40px;
-    border: 2px solid #fff;
+    border: none;
     object-fit: cover;
     object-position: 0% 80%;
     box-shadow: 2px 2px 6px 4px #00000022;
     color: #fff;    
-    font-weight: 800;
-    font-size: 0.875rem; 
-    background-color: transparent;
+    font-weight: 900;
+    font-size: .875rem; 
+    background: linear-gradient(-45deg, #c62368,  #fa7268);
     cursor: pointer;
+    transition: all 0.35s cubic-bezier(0, 0, 0.32, 1.22);
 
     @media(max-width: 780px) {
         width: 50%;
@@ -289,13 +448,21 @@ export const Button = styled.button<IButtonProps>`
     @media(max-width: 320px) {
         width: 80%;
     }
+
+    &:hover{
+        background: linear-gradient(45deg, #fa7268,  #c62368);
+        transform: scale(.95);
+        box-shadow: 2px 2px 8px 6px #00000025;
+    }
+
+    ${props => TooltipComponent(props?.tooltip)}
 `;
 // {===----===----===----===[ Button ]===----===----===----===}
 
 
 // {===----===----===----===[ FixButton ]===----===----===----===}
 interface IFixedButtonProps {
-
+    tooltip?: ITooltipPropsNullable,
 }
 
 export const FixedButton = styled.button<IFixedButtonProps>`
@@ -367,6 +534,8 @@ export const FixedButton = styled.button<IFixedButtonProps>`
         top: 88%;
         left: 74%;
     }
+
+    ${props => TooltipComponent(props?.tooltip)}
 `;
 // {===----===----===----===[ FixButton ]===----===----===----===}
 

@@ -1,4 +1,4 @@
-import { GenericDiv, Title, Text, QuestionCard, TagText } from "../../../assets/styles/styled-components";
+import { GenericDiv, Text, QuestionCard, TagText, Tooltip } from "../../../assets/styles/styled-components";
 import { useNavigate } from "react-router-dom";
 import { IquestionsArray } from "../../../providers/getQuestions";
 import "./home-components.scss";
@@ -21,12 +21,19 @@ const QuestionCards: React.FC<IQuestionCard> = ({ data }) => {
                             <GenericDiv alignItems="flex-end" justifyContent="flex-end">
                                 {
                                     e.languages.map((i, index) =>
-                                        <img
-                                            key={index}
-                                            src={i.image}
-                                            alt={`imagename_${i.image}`}
-                                            title={i.language}
-                                        />
+                                        <Tooltip tooltip={{
+                                            position: "bottom",
+                                            text: i.language,
+                                            width: 80,
+                                            backgroundColor: '#403b3b',
+                                            color: '#fff'
+                                        }}>
+                                            <img
+                                                key={index}
+                                                src={i.image}
+                                                alt={`imagename_${i.image}`}
+                                            />
+                                        </Tooltip>
                                     )
                                 }
                             </GenericDiv>

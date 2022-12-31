@@ -1,7 +1,17 @@
 import { useState } from 'react';
 import { FixedButton } from '../../assets/styles/styled-components';
 
-const ScrollButton = () => {
+interface IScrollButton {
+    tooltip?: {
+        position?: 'top' | 'bottom' | 'left' | 'right',
+        text: string,
+        width?: number,
+        backgroundColor?: string;
+        color?: string;
+    },
+};
+
+const ScrollButton: React.FC<IScrollButton> = ({ tooltip }) => {
     const [visible, setVisible] = useState<boolean>(false);
 
     const toggleVisible = () => {
@@ -26,8 +36,17 @@ const ScrollButton = () => {
     return (
         <FixedButton
             style={{
+                cursor: 'pointer',
                 transition: 'all 0.35s cubic-bezier(0, 0, 0.32, 1.22)',
-                transform: `${visible ? 'scale(1)' : 'scale(0)'}`
+                transform: `${visible ? 'scale(1)' : 'scale(0)'}`,
+                opacity: `${visible ? 1 : 0}`
+            }}
+            tooltip={{
+                position: "left",
+                text: "Voltar ao topo",
+                backgroundColor: '#122038',
+                color: '#fff',
+                width: 100
             }}
             onClick={scrollToTop}
         >

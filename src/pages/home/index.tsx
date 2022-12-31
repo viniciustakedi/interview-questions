@@ -1,9 +1,12 @@
 import { useCallback, useEffect, useState } from "react";
-import { Button, Container, Content, GenericDiv, PaddingTop, Section, Title } from "../../assets/styles/styled-components";
+import { Button, Container, Content, GenericDiv, PaddingTop, Section, SpanGradient, Title } from "../../assets/styles/styled-components";
 import { IquestionsArray, QuestionsRequest } from "../../providers/getQuestions";
 import QuestionCards from "./components/question-cards";
 
 import './home.scss';
+import ScrollIndicator from "../../components/scrollIndicator";
+
+const GRADIENT = { position: "-45deg", color1: "#c62368", color2: "#fa7268" };
 
 export default function Home() {
     const [questions, setQuestions] = useState<IquestionsArray>([]);
@@ -20,23 +23,25 @@ export default function Home() {
     return (
         <Container className="container-home-background">
             <Content>
-                <Section>
+                <Section className="initial-content-home">
                     <Title
+                        textAlign="center"
                         fontSize="super"
                         fontWeight={900}
                         paddingTop={2}
                         id='title-home'
                     >
-                        Perguntas que todo 🚀 programador(a) deve saber...
+                        Interview
+                        <SpanGradient gradient={GRADIENT}> Questions</SpanGradient>
+                        <SpanGradient gradient={GRADIENT}>.</SpanGradient>
                     </Title>
+                    <PaddingTop size={1.5} />
+                    <Button tooltip={{ position: "bottom", text: "Ver mais perguntas" }}>Perguntas</Button>
+                    <ScrollIndicator />
+                </Section>
+                <Section>
                     <PaddingTop size={4} />
-                    {/* Varios cards, deixar somente uns seis display: grid */}
-                    {/* Fazer cards para ficar as perguntas, imagem, título, linguagem/imagem e tipo */}
                     <QuestionCards data={questions} />
-                    <PaddingTop size={4} />
-                    <GenericDiv alignItems="flex-end" justifyContent="center">
-                        <Button>Ver mais...</Button>
-                    </GenericDiv>
                 </Section>
             </Content>
         </Container>
