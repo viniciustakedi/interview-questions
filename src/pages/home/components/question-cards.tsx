@@ -10,11 +10,19 @@ interface IQuestionCard {
 const QuestionCards: React.FC<IQuestionCard> = ({ data }) => {
     const navigate = useNavigate();
 
+    const handleClick = (id: number) => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+        navigate(`/question-view/${id}`);
+    }
+
     return (
         <div className='question-div'>
             {
                 data.flatMap(e =>
-                    <QuestionCard key={e.id} onClick={() => navigate(`/question-view/${e.id}`)}>
+                    <QuestionCard key={e.id} onClick={() => handleClick(e.id)}>
                         <Text fontSize="default" fontWeight={400}>{e.title}</Text>
                         <GenericDiv alignItems="flex-end" >
                             <TagText>{e.type}</TagText>

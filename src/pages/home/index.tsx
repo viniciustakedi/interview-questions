@@ -1,10 +1,10 @@
 import { useCallback, useEffect, useState } from "react";
 import { Button, Container, Content, GenericDiv, PaddingTop, Section, SpanGradient, Title } from "../../assets/styles/styled-components";
+import { ScrollIndicator } from "../../components";
 import { IquestionsArray, QuestionsRequest } from "../../providers/getQuestions";
 import QuestionCards from "./components/question-cards";
 
 import './home.scss';
-import ScrollIndicator from "../../components/scrollIndicator";
 
 const GRADIENT = { position: "-45deg", color1: "#c62368", color2: "#fa7268" };
 
