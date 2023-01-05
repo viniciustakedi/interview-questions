@@ -26,7 +26,7 @@ const QuestionCards: React.FC<IQuestionCard> = ({ data }) => {
                     <QuestionCard key={e.id} onClick={() => handleClick(e.id)}>
                         <Text styleProps={{ fontSize: "default", fontWeight: 400 }}>{e.title}</Text>
                         <GenericDiv styleProps={{ alignItems: "flex-end" }}  >
-                            <TagText>
+                            <TagText id="tag-text">
                                 <ElipseField amount={10} value={e.type} />
                             </TagText>
                             <GenericDiv styleProps={{ alignItems: "flex-end", justifyContent: "flex-end" }}>
@@ -42,6 +42,7 @@ const QuestionCards: React.FC<IQuestionCard> = ({ data }) => {
                                                 color: '#fff'
                                             }}>
                                             <img
+                                                id="icon-tec"
                                                 src={i.image}
                                                 alt={`imagename_${i.image}`}
                                             />

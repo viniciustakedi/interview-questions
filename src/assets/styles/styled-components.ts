@@ -311,7 +311,6 @@ export const Image = styled.img<IImageProps>`
     height: ${props => `${props.height}rem` || '100%'};
     border-radius: 5px;
     object-fit: cover;
-    object-position: 0% 80%;
     box-shadow: 2px 2px 6px 4px #00000022;
 `;
 // {===----===----===----===[ Image ]===----===----===----===}
