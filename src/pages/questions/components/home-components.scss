@@ -1,0 +1,170 @@
+.question-div-questions {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 50%;
+  height: 100%;
+  animation: teste .53s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+  .div-onclick {
+    cursor: pointer;
+  }
+
+  #icon-tec {
+    width: 22px;
+    object-fit: cover;
+    cursor: default;
+  }
+
+  #banner-card {
+    width: 10rem;
+    height: 6rem;
+    object-fit: fill;
+  }
+
+  #question-title {
+    line-height: 25px;
+    padding-bottom: .5rem;
+  }
+
+}
+
+@media (max-width: 1355px) {
+  .question-div-questions {
+    width: 70%;
+  }
+}
+
+@media (max-width: 1000px) {
+  .question-div-questions {
+    width: 100%;
+  }
+}
+
+@media (max-width: 845px) {
+  .question-div-questions {
+    #question-title {
+      line-height: 30px;
+    }
+  }
+}
+
+
+@media (max-width: 690px) {
+  .question-div-questions {
+
+    .question-card-list {
+      height: 12rem;
+    }
+
+    #question-resume {
+      display: none;
+    }
+
+    #question-title {
+      font-size: 22px;
+      line-height: 25px;
+    }
+
+    #question-createat,
+    #time-read,
+    #tag-text {
+      font-size: 14px;
+    }
+
+    #tag-text {
+      width: 35%;
+      font-size: 12px;
+    }
+
+    #banner-card {
+      width: 6rem;
+      height: 4rem;
+      object-fit: fill;
+    }
+  }
+}
+
+@media (max-width: 525px) {
+  .question-div-questions {
+    width: 100%;
+
+    #time-read {
+      width: 50%;
+    }
+  }
+}
+
+@media (max-width: 460px) {
+  .question-div-questions {
+
+    .question-card-list {
+      height: 10rem;
+    }
+
+    #question-title {
+      font-size: 18px;
+      line-height: 20px;
+      margin-right: 10px;
+    }
+
+    #question-createat,
+    #time-read,
+    #tag-text {
+      font-size: 12px;
+    }
+
+    #time-read {
+      padding-left: .5rem;
+    }
+
+    #tag-text {
+      font-size: 10px;
+      font-weight: 500;
+    }
+
+    #banner-card {
+      width: 6rem;
+      height: 4rem;
+      object-fit: fill;
+    }
+
+    #icon-tec {
+      width: 18px;
+      object-fit: cover;
+    }
+  }
+}
+
+@media (max-width: 350px) {
+  .question-div-questions {
+    .question-card-list {
+      padding: .5rem;
+    }
+
+    #question-title {
+      font-size: 16px;
+      line-height: 20px;
+      margin-right: 10px;
+    }
+
+    #time-read {
+      width: 60%;
+      padding-left: .5rem;
+    }
+
+    #tag-text {
+      width: 40%;
+    }
+  }
+}
+
+@media (max-width: 300px) {
+  .question-div-questions {
+    #banner-card {
+      width: 4rem;
+      height: 4rem;
+      object-fit: fill;
+    }
+  }
+}

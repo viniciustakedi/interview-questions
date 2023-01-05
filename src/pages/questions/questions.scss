@@ -1,0 +1,20 @@
+.container-questions-background {
+    background-image: url('../../assets/images/bg-questions.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+@media (max-width: 525px) {
+    #title-questions {
+        font-size: 2rem;
+        padding-bottom: 1rem;
+    }
+}
+
+@media (max-width: 385px) {
+    #title-questions {
+        font-size: 1.75rem;
+        line-height: 30px;
+    }
+}

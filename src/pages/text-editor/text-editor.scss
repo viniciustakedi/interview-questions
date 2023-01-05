@@ -1,0 +1,33 @@
+.question {
+    position: relative;
+
+    .title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        background-color: #00000065;
+        width: 100%;
+        height: 100%;
+        border-radius: 5px;
+        text-shadow: 1px 1px 4px 2px #00000042;
+    }
+}
+
+
+.editor {
+    margin: 1rem;
+    border-radius: 5px;
+
+    .jodit-status-bar-link,
+    .jodit-ui-group_group_info {
+        display: none;
+    }
+
+    .jodit .jodit-workplace .jodit-wysiwyg,
+    .jodit .jodit-workplace .jodit-wysiwyg_iframe,
+    .jodit-container .jodit-workplace .jodit-wysiwyg,
+    .jodit-container .jodit-workplace .jodit-wysiwyg_iframe {
+        padding: 2rem;
+    }
+}
