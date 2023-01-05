@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FixedButton } from '../../assets/styles/styled-components';
+import { FixedButton, Tooltip } from '../../assets/styles/styled-components';
 
 interface IScrollButton {
     tooltip?: {
@@ -43,10 +43,13 @@ const ScrollButton: React.FC<IScrollButton> = ({ tooltip }) => {
             }}
             tooltip={{
                 position: "left",
+                left: -180,
+                top: -5,
                 text: "Voltar ao topo",
                 backgroundColor: '#122038',
                 color: '#fff',
-                width: 100
+                width: 100,
+                removePositionRelative: true,
             }}
             onClick={scrollToTop}
         >

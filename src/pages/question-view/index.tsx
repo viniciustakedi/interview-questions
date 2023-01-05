@@ -28,13 +28,15 @@ function QuestionView() {
         <Container className="container-question-background">
             <Content width={65} padding={3} className="content-question">
                 <GenericDiv className="question">
-                    <Title className="title" weight={900} color="#fff">{question?.title}</Title>
+                    <Title className="title" styleProps={{ weight: 900, color: "#fff" }} >{question?.title}</Title>
                     <Image height={25} src={question?.imageUrl} alt={`image-alt-${question?.imageUrl}`} />
                 </GenericDiv>
                 <GenericDiv
                     className="answer-question"
-                    flexDirection="column"
-                    marginTop={2}
+                    styleProps={{
+                        flexDirection: "column",
+                        marginTop: 2
+                    }}
                     dangerouslySetInnerHTML={{
                         __html: sanitizeHtml(answer, {
                             allowedTags: sanitizeHtml.defaults.allowedTags.concat(['img']),
