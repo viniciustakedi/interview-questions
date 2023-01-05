@@ -11,27 +11,27 @@ function QuestionView() {
     const [answer, setAnswer] = useState("");
     const { questionId } = useParams();
 
-    // const getQuestionById = useCallback(async () => {
-    //     const id = Number(questionId) as number;
-    //     const question = await GetQuestionById(id);
+    const getQuestionById = useCallback(async () => {
+        const id = Number(questionId) as number;
+        const question = await GetQuestionById(id);
 
-    //     setAnswer(question?.answer as string);
-    //     setQuestion(question);
-    // }, [questionId])
+        setAnswer(question?.answer as string);
+        setQuestion(question);
+    }, [questionId])
 
 
-    // useEffect(() => {
-    //     getQuestionById();
-    // }, [])
+    useEffect(() => {
+        getQuestionById();
+    }, [])
 
     return (
         <Container className="container-question-background">
-            {/* <Content width={65} padding={3} className="content-question">
+            <Content width={65} padding={3} className="content-question">
                 <GenericDiv className="question">
                     <Title className="title" styleProps={{ weight: 900, color: "#fff" }} >{question?.title}</Title>
                     <Image height={25} src={question?.imageUrl} alt={`image-alt-${question?.imageUrl}`} />
                 </GenericDiv>
-                <GenericDiv
+                {/* <GenericDiv
                     className="answer-question"
                     styleProps={{
                         flexDirection: "column",
@@ -49,10 +49,9 @@ function QuestionView() {
                             },
                             allowedSchemes: ['data', 'http', 'https']
                         })
-                    }} />
+                    }} /> */}
                 <ScrollButton />
-            </Content> */}
-            <h1>{questionId}</h1>
+            </Content>
         </Container>
     );
 }
