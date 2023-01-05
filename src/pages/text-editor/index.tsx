@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import JoditEditor from "jodit-react";
 import './text-editor.scss';
-import sanitize from "sanitize-html";
+import DOMPurify from 'isomorphic-dompurify';
 import { PaddingTop } from "../../assets/styles/styled-components";
 
 export default function TextEditor() {
@@ -30,19 +30,7 @@ export default function TextEditor() {
                 <code>{content}</code>
             </pre>
             <PaddingTop size={4} />
-            <div dangerouslySetInnerHTML={{
-                __html: sanitize(content, {
-                    allowedTags: sanitize.defaults.allowedTags.concat(['img']),
-                    allowedAttributes: {
-                        'img': ['src'],
-                        'a': ['href'],
-                        'span': ['style'],
-                        'li': ['style'],
-                        'h1': ['style'] 
-                    },
-                    allowedSchemes: ['data', 'http', 'https']
-                })
-            }} />
+            <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(content) }} />
         </div>
     );
 }
