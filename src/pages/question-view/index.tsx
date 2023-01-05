@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import { Container, Content, GenericDiv, Image, Title } from "../../assets/styles/styled-components";
 import { GetQuestionById, IQuestionsType } from "../../providers/getQuestions";
-import sanitizeHtml from 'sanitize-html';
 import DOMPurify from 'isomorphic-dompurify';
 import { useParams } from "react-router-dom";
 import './question-view.scss'
