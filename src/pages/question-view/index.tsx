@@ -41,7 +41,6 @@ function QuestionView() {
                     }}
                     dangerouslySetInnerHTML={{ __html: answer }}
                 />
-
                 <ScrollButton />
             </Content>
         </Container>
