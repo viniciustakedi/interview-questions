@@ -8,7 +8,7 @@ import './home.scss';
 
 
 export default function Home() {
-    const { questions, setQuestion } = useContext(QuestionsContext)
+    const { questions, setQuestions } = useContext(QuestionsContext)
     const GRADIENT = { position: "-45deg", color1: "#c62368", color2: "#fa7268" };
     const navigate = useNavigate();
 

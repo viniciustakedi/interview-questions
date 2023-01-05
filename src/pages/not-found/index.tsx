@@ -12,9 +12,11 @@ function NotFound() {
                 <img src={NotFoundImage} alt="not_found_image" />
                 <Title
                     id="title"
-                    fontSize="small"
-                    fontWeight={200}
-                    opacity={0.5}
+                    styleProps={{
+                        fontSize: "small",
+                        fontWeight: 200,
+                        opacity: .5
+                    }}
                 >
                     Opss... Página não encontrada!
                 </Title>
