@@ -31,14 +31,15 @@ function QuestionView() {
                     <Title className="title" styleProps={{ weight: 900, color: "#fff" }} >{question?.title}</Title>
                     <Image height={25} src={question?.imageUrl} alt={`image-alt-${question?.imageUrl}`} />
                 </GenericDiv>
-                {/* <GenericDiv
+                <GenericDiv
                     className="answer-question"
                     styleProps={{
                         flexDirection: "column",
                         marginTop: 2
                     }}
                     dangerouslySetInnerHTML={{
-                        __html: sanitizeHtml(answer, {
+                        __html: `<div>
+                        ${sanitizeHtml(answer, {
                             allowedTags: sanitizeHtml.defaults.allowedTags.concat(['img']),
                             allowedAttributes: {
                                 'img': ['src'],
@@ -48,8 +49,10 @@ function QuestionView() {
                                 'h1': ['style']
                             },
                             allowedSchemes: ['data', 'http', 'https']
-                        })
-                    }} /> */}
+                        })}
+                    </div>`
+                    }}
+                />
                 <ScrollButton />
             </Content>
         </Container>
