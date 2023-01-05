@@ -15,7 +15,19 @@ function QuestionView() {
         const id = Number(questionId) as number;
         const question = await GetQuestionById(id);
 
-        setAnswer(question?.answer as string);
+        const cleanHtml = sanitizeHtml(question?.answer as string, {
+            allowedTags: sanitizeHtml.defaults.allowedTags.concat(['img']),
+            allowedAttributes: {
+                'img': ['src'],
+                'a': ['href'],
+                'span': ['style'],
+                'li': ['style'],
+                'h1': ['style']
+            },
+            allowedSchemes: ['data', 'http', 'https']
+        })
+
+        setAnswer(cleanHtml);
         setQuestion(question);
     }, [questionId])
 
@@ -37,21 +49,9 @@ function QuestionView() {
                         flexDirection: "column",
                         marginTop: 2
                     }}
-                    dangerouslySetInnerHTML={{
-                        __html: answer
-                    }}
+                    dangerouslySetInnerHTML={{ __html: answer }}
                 />
-                {/* sanitizeHtml(answer, {
-    allowedTags: sanitizeHtml.defaults.allowedTags.concat(['img']),
-    allowedAttributes: {
-        'img': ['src'],
-        'a': ['href'],
-        'span': ['style'],
-        'li': ['style'],
-        'h1': ['style']
-    },
-    allowedSchemes: ['data', 'http', 'https']
-}) */}
+
                 <ScrollButton />
             </Content>
         </Container>
