@@ -33,7 +33,7 @@ function App() {
             <Route path='/text-editor' element={<TextEditor />} />
             <Route path='/questions' element={<Questions />} />
             <Route path='/question-view/:questionId' element={<QuestionView />} />
-            <Route path='*' element={<NotFound />} />
+            <Route path='/*' element={<NotFound />} />
           </Routes>
         </Router>
       </div>

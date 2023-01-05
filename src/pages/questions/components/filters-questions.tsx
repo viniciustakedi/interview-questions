@@ -12,7 +12,6 @@ interface IFilters {
 }
 
 export const Filters: React.FC<IFilters> = ({ children, source }) => {
-    console.log("🚀 ~ file: filters-questions.tsx:15 ~ children", children)
     const [filters, setFilters] = useState([]);
     const { questions, setQuestions } = useContext(QuestionsContext)
 

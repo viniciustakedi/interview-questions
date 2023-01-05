@@ -12,8 +12,6 @@ export default function Home() {
     const GRADIENT = { position: "-45deg", color1: "#c62368", color2: "#fa7268" };
     const navigate = useNavigate();
 
-    console.log(questions)
-
     return (
         <Container className="container-home-background">
             <Content>
