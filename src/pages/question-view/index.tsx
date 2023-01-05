@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import { Container, Content, GenericDiv, Image, Title } from "../../assets/styles/styled-components";
 import { GetQuestionById, IQuestionsType } from "../../providers/getQuestions";
 import sanitizeHtml from 'sanitize-html';
+import DOMPurify from 'isomorphic-dompurify';
 import { useParams } from "react-router-dom";
 import './question-view.scss'
 import ScrollButton from "../../components/scrollButton";
@@ -15,17 +16,7 @@ function QuestionView() {
         const id = Number(questionId) as number;
         const question = await GetQuestionById(id);
 
-        const cleanHtml = sanitizeHtml(question?.answer as string, {
-            allowedTags: sanitizeHtml.defaults.allowedTags.concat(['img']),
-            allowedAttributes: {
-                'img': ['src'],
-                'a': ['href'],
-                'span': ['style'],
-                'li': ['style'],
-                'h1': ['style']
-            },
-            allowedSchemes: ['data', 'http', 'https']
-        })
+        const cleanHtml = DOMPurify.sanitize(question?.answer as string)
 
         setAnswer(cleanHtml);
         setQuestion(question);
