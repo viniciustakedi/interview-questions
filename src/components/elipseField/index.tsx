@@ -1,18 +1,21 @@
 import React, { AllHTMLAttributes } from 'react';
 import './input.scss';
 
-interface ParagraphProps extends AllHTMLAttributes<HTMLParagraphElement> {
-    elipsePosition?: string;
+interface ParagraphProps {
+    elipsePosition?: string
     amount?: number;
-    id: string;
     value: string;
 }
 
-const ElipseField: React.FunctionComponent<ParagraphProps> = ({ elipsePosition, id, amount, value, ...rest }) => {
-    const valueParagraph = amount ? value.substring(0, amount) + '...' : value;
+const ElipseField: React.FunctionComponent<ParagraphProps> = ({ elipsePosition, amount, value }) => {
+    const valueParagraph = amount && value.length > amount
+        ? value.substring(0, amount).trimEnd() + '...'
+        : value;
 
     return (
-        <p id={id} {...rest}>{valueParagraph}</p>
+        <>
+            {valueParagraph}
+        </>
     );
 }
 

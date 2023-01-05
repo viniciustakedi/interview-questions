@@ -6,7 +6,7 @@ const ScrollIndicator = () => {
 
 
     return (
-        <GenericDiv height={10} className="scroll-indicator" justifyContent="flex-end" alignItems="center" flexDirection="column">
+        <GenericDiv styleProps={{ height: 10, justifyContent: "flex-end", alignItems: "center", flexDirection: "column" }} className="scroll-indicator" >
             <Tooltip tooltip={{ position: 'left', text: "Role para baixo", backgroundColor: "#002440", color: "#fff" }}>
                 <div className="dots">
                     <div className="dot"></div>
