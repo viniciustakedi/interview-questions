@@ -38,21 +38,20 @@ function QuestionView() {
                         marginTop: 2
                     }}
                     dangerouslySetInnerHTML={{
-                        __html: `<div>
-                        ${sanitizeHtml(answer, {
-                            allowedTags: sanitizeHtml.defaults.allowedTags.concat(['img']),
-                            allowedAttributes: {
-                                'img': ['src'],
-                                'a': ['href'],
-                                'span': ['style'],
-                                'li': ['style'],
-                                'h1': ['style']
-                            },
-                            allowedSchemes: ['data', 'http', 'https']
-                        })}
-                    </div>`
+                        __html: answer
                     }}
                 />
+                {/* sanitizeHtml(answer, {
+    allowedTags: sanitizeHtml.defaults.allowedTags.concat(['img']),
+    allowedAttributes: {
+        'img': ['src'],
+        'a': ['href'],
+        'span': ['style'],
+        'li': ['style'],
+        'h1': ['style']
+    },
+    allowedSchemes: ['data', 'http', 'https']
+}) */}
                 <ScrollButton />
             </Content>
         </Container>
