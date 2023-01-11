@@ -54,23 +54,22 @@ const questions = [
     },
     {
         id: 4,
-        title: 'Qual a diferença de div para um spam?',
-        answer: 'Resposta aqui - pode ser um html',
-        resume: "Um resumo legal aqui!",
+        title: 'Qual a diferença de div para um span?',
+        answer: `<h1><span style="color: rgb(67, 67, 67);">O que é a tag span?</span><br></h1>
+        <blockquote><br></blockquote>
+        <p><span style="color: rgb(102, 102, 102); font-size: 18px;">A tag span é geralmente utilizada para agrupar elementos em linhas de um documento.</span></p><p><br></p><h1><span style="color: rgb(67, 67, 67);">O que é a tag div?</span></h1><p><br></p><div><span style="color: rgb(102, 102, 102); font-size: 18px;">A tag div geralmente é utilizada para criar uma divisão ou uma seção em um documento HTML.</span></div><p><br></p><h1><span style="color: rgb(67, 67, 67);">Conclusão</span><br></h1><p><span style="color: rgb(67, 67, 67); font-size: 18px;"><br></span></p><p><span style="color: rgb(67, 67, 67); font-size: 18px;">No geral são tags distintas, podendo ter relação no documento para fins diferentes.&nbsp;</span></p><br><p><br></p><p><br></p> 
+        `,
+        resume: "A tag span é geralmente utilizada para agrupar elementos em linhas de um documento.",
         type: 'front-end',
         languages: [
             {
                 image: 'https://logospng.org/download/html-5/logo-html-5-256.png',
                 language: 'HTML'
-            },
-            {
-                image: 'https://logospng.org/download/css-3/logo-css-3-256.png',
-                language: 'CSS'
             }
         ],
-        imageUrl: 'http://image.com',
-        timeToRead: 15,
-        createdAt: 'Jan 2, 2023'
+        imageUrl: 'https://www.freecodecamp.org/news/content/images/size/w2000/2021/09/span-tag.png',
+        timeToRead: 2,
+        createdAt: 'Jan 11, 2023'
     },
     {
         id: 5,

@@ -17,13 +17,13 @@ export default function Home() {
             <Content>
                 <Section className="initial-content-home">
                     <Title
+                        id='title-home'
                         styleProps={{
                             textAlign: "center",
                             fontSize: "super",
                             fontWeight: 900,
                             paddingTop: 2,
                         }}
-                        id='title-home'
                     >
                         Interview
                         <SpanGradient gradient={GRADIENT}> Questions</SpanGradient>
